@@ -1,6 +1,8 @@
 package com.delaroystudios
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         rcv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rcv.adapter = adapter;
-    }
 
+        adapter.setOnClickListener(object : CustomAdapter.ClickListener{
+            override fun onClick(pos: Int, aView: View) {
+                Toast.makeText(this@MainActivity, model.get(pos).name, Toast.LENGTH_LONG).show()
+            }
+        })
+    }
 
     private fun readFromAsset(): List<Model> {
 

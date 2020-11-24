@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:padding="20dp"
-              android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardElevation="5dp"
+        card_view:contentPadding="10dp">
 
-    <TextView
-            android:id="@+id/txt"
-            android:textSize="22sp"
-            android:layout_width="match_parent"
+
+    <RelativeLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"/>
+            android:padding="16dp"
+            android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/sub_txt"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"/>
+        <ImageView android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/img"
+                android:contentDescription="@string/app_name"/>
 
-</LinearLayout>
+        <TextView
+                android:id="@+id/txt"
+                android:textSize="22sp"
+                android:text="Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/img"
+                android:layout_marginStart="20dp"/>
+
+        <TextView
+                android:id="@+id/sub_txt"
+                android:textSize="18sp"
+                android:text="Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:layout_toEndOf="@+id/img"
+                android:layout_below="@+id/txt"
+                android:layout_marginStart="20dp"
+                />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

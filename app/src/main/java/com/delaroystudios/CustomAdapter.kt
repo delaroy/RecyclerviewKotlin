@@ -44,12 +44,12 @@ class CustomAdapter(val modelList: List<Model>, val context: Context) :
         fun bind(model: Model): Unit {
             itemView.txt.text = model.name
             itemView.sub_txt.text = model.version
+            val id = context.resources.getIdentifier(model.name.toLowerCase(), "drawable", context.packageName)
+            itemView.img.setBackgroundResource(id)
         }
 
         override fun onClick(p0: View?) {
             mClickListener.onClick(adapterPosition, itemView)
         }
-
     }
-
 }
